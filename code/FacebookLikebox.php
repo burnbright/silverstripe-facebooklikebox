@@ -4,7 +4,7 @@ class FacebookLikebox extends ViewableData
 {
 
     protected $parameters = array(
-        'Href' => 'http://www.facebook.com/platform',
+        'Href' => 'https://www.facebook.com/platform',
         'Width' => 300,
         'Height' => 60,
         'AdaptContainerWidth' => true,
@@ -25,7 +25,7 @@ class FacebookLikebox extends ViewableData
     {
         $this->parameters = array_merge($this->parameters, $parameters);
     }
-    
+
     public function getAttributes()
     {
         $params = $this->parameters;
@@ -41,7 +41,7 @@ class FacebookLikebox extends ViewableData
         $attrs['data-hide-cover'] = $params['HideCoverPhoto'] ? 'true' : 'false';
         $attrs['data-show-facepile'] = $params['ShowFaces'] ? 'true' : 'false';
         $attrs['data-show-posts'] = $params['ShowPagePosts'] ? 'true' : 'false';
-        
+
         return $attrs;
     }
 
@@ -54,7 +54,7 @@ class FacebookLikebox extends ViewableData
             return ($v || $v === 0 || $v === '0');
         });
 
-        // Create markkup
+        // Create markup
         $parts = array();
         foreach ($attrs as $name => $value) {
             $parts[] = "{$name}=\"" . Convert::raw2att($value) . "\"";

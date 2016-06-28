@@ -4,8 +4,19 @@ if (class_exists("Widget")) {
     class FacebookLikeboxWidget extends Widget
     {
 
-        private static $cmstitle = "Facebook Likebox";
-        
+        /**
+         * @var string
+         */
+        private static $cmsTitle = "Facebook Likebox";
+        /**
+         * @var string
+         */
+        private static $title = "Facebook Likebox";
+        /**
+         * @var string
+         */
+        private static $description = "Display Facebook Likebox widget on your site.";
+
         private static $db = array(
             'Href' => 'Text',
             'Width' => 'Int',
@@ -27,7 +38,7 @@ if (class_exists("Widget")) {
             $fields = parent::getCMSFields();
             $fields->merge(new FieldList(
                 TextField::create("Href", "Facebook Page URL")
-                    ->setRightTitle("eg: http://www.facebook.com/mypage"),
+                    ->setRightTitle("eg: https://www.facebook.com/mypage"),
                 CheckboxField::create('ShowPagePosts')
                     ->setDescription("i.e. the latest posts and images"),
                 CheckboxField::create('ShowFaces'),
@@ -60,8 +71,5 @@ if (class_exists("Widget")) {
             return $lb;
         }
 
-        public function getTitle()
-        {
-        }
     }
 }
